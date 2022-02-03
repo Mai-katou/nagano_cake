@@ -30,14 +30,10 @@ Rails.application.routes.draw do
     get 'customers/show'
     get 'customers/edit'
   end
+
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
   end
   namespace :admin do
     get '/' => "homes#top"
