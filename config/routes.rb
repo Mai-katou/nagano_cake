@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :public do
     get 'addresses/index'
     get 'addresses/edit'
@@ -13,29 +14,22 @@ Rails.application.routes.draw do
     get 'cart_items/index'
   end
   namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/unsubscribe'
+    get 'customers/my_page' => 'customers#show'
+   resources :customers, only: [:edit, :update, :unsubscribe, :withdraw]
   end
   namespace :public do
     get 'items/index'
     get 'items/show'
   end
   namespace :public do
-    get 'homes/top'
+    root to: 'homes#top'
     get 'homes/about'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
   end
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
-  end
-  namespace :admin do
+    resources :customers, only:[:index, :show, :edit,:update]
     get '/' => "homes#top"
   end
 

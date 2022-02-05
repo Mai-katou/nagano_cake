@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id", null: false
   end
 
   create_table "admins", force: :cascade do |t|
@@ -64,6 +65,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id", null: false
+    t.integer "customer_id", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -77,6 +80,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "telephone_number", null: false
     t.boolean "is_active", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -106,6 +111,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -117,6 +124,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.integer "payment_method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
