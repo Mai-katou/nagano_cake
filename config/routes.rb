@@ -1,36 +1,38 @@
 Rails.application.routes.draw do
 
-  namespace :public do
+   scope module: :public do
+
     get 'addresses/index'
     get 'addresses/edit'
-  end
-  namespace :public do
+
     get 'orders/new'
     get 'orders/complete'
     get 'orders/index'
     get 'orders/show'
-  end
-  namespace :public do
+
     get 'cart_items/index'
-  end
-  namespace :public do
+
     get 'customers/my_page' => 'customers#show'
-   resources :customers, only: [:edit, :update, :unsubscribe, :withdraw]
-  end
-  namespace :public do
+    get 'customers/edit' =>'customers#edit'
+    patch 'customers' => 'customers#update'
+    get 'customers/unsubscribe' => "customers#unsubscribe"
+    patch 'customers/withdraw' => "customers/withdraw"
+
     get 'items/index'
     get 'items/show'
-  end
-  namespace :public do
+
     root to: 'homes#top'
-    get 'homes/about'
+    get "/about" => "homes#about"
   end
 
+
+
   namespace :admin do
+    get '/' => "homes#top"
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
-    resources :customers, only:[:index, :show, :edit,:update]
-    get '/' => "homes#top"
+    resources :customers, only:[:index, :show, :edit, :update]
+    resources :orders, only:[:show, :update]
   end
 
  devise_for :customers,skip: [:passwords,], controllers: {

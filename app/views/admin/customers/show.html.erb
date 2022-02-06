@@ -1,6 +1,6 @@
 <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h2>
 
-<table class= "table">
+<table class= "table table-borderless">
   <tbody>
     <tr>
       <th scope="row">会員ID</th>
@@ -28,9 +28,18 @@
     </tr>
     <tr>
       <th scope="row">会員ステータス</th>
-      <td><%= @customer.is_active %></td>
+      <td><% if @customer.is_active == true %>
+            <strong class ="true">有効</strong>
+          <% else %>
+            <strong class="false">退会</strong>
+          <% end %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= link_to "編集する",edit_admin_customer_path(@customer.id), class: 'btn btn-success' %>
+        <%= link_to "注文履歴一覧を見る", public_orders_index_path, class: 'btn btn-primary' %>
+      </td>
     </tr>
   </tbody>
 </table>
-
-<%= link_to "編集する",edit_admin_customer_path(@customer.id), class: 'btn btn-cuccess' %>

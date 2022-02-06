@@ -18,3 +18,72 @@
   padding:0;
   box-sizing:border-box;
 }
+
+header{
+  border-bottom:1px solid black;
+}
+
+.logo{
+  color:black;
+  border:1px solid black;
+}
+
+ul{
+  list-style: none;
+  display:flex;
+}
+
+.nav-item{
+  margin:20px;
+}
+
+main{
+  padding:50px;
+  margin-bottom:200px;
+}
+
+.log-in{
+  margin-bottom:250px;
+}
+
+h2{
+  padding-bottom:20px;
+}
+
+.field{
+  margin:20px;
+}
+
+.true{
+  color:green;
+}
+
+.false{
+  color:#c0c0c0;
+}
+
+.table{
+  margin-top:30px;
+}
+
+.fa-plus-circle{
+  color:black;
+}
+
+.new-item{
+  padding:20px;
+}
+
+.show{
+  margin:10px;
+}
+.about{
+  text-align: center;
+}
+
+.top-page-new-item{
+  margin-top:20px;
+}
+footer{
+  border-top:1px solid black;
+}

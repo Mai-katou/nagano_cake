@@ -1,4 +1,10 @@
-<h2>商品一覧</h2>
+<div class="conteiner">
+  <div class="row" >
+    <h2 class="col-md-4">商品一覧</h2>
+    <div Class="add-item col-md-2 offset-md-6">
+    <%= link_to new_admin_item_path do %><i class="fas fa-plus-circle fa-3x"></i><% end %>
+    </div>
+  </div>
   <table class="table">
     <thead class ="thead-light">
     <tr>
@@ -11,17 +17,20 @@
     </thead>
 
     <tbody>
-        <% @items.each do |item| %>
+      <% @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
           <td><%= item.name %></td>
           <td><%= item.price %></td>
           <td><%= item.genre.name %></td>
           <td><% if item.is_active == true %>
-                <a>販売中</a>
+                <strong class="true">販売中</strong>
               <% else %>
-                <a>販売停止中</a>
+                <strong class="false">販売停止中</strong>
               <% end %></td>
         </tr>
-        <% end %>
+      <% end %>
     </tbody>
+  </table>
+  <%= paginate @items %>
+  </div>
