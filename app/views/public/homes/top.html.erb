@@ -12,12 +12,14 @@
     <div class="row">
     <% @items.each do |item| %>
     <div class="col-md-3">
+      <%=link_to item_path(item.id) do %>
       <%= image_tag item.get_image %>
+      <% end %>
       <p><%= item.name %></p>
       <p>￥<%= item.price %></p>
     </div>
     <% end %>
     </div>
   </div>
-<%= link_to "全ての商品を見る>", public_items_index_path ,class: "row justify-content-end" %>
+<%= link_to "全ての商品を見る>", items_path ,class: "row justify-content-end" %>
 </div>

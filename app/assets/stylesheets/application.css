@@ -84,6 +84,11 @@ h2{
 .top-page-new-item{
   margin-top:20px;
 }
+
+.order-complete{
+  text-align:center;
+}
+
 footer{
   border-top:1px solid black;
 }

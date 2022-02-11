@@ -15,11 +15,11 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
   end
-  
+
   def withdraw
     customer = current_customer
-    customer.update
+    customer.update(is_deleted: true)
     redirect_to root_path
   end
-  
+
 end
