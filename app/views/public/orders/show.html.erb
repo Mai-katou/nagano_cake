@@ -2,37 +2,48 @@
 <div class ="container">
   <div class="row">
     <div class="col-md-7">
+      <p>注文情報</p>
       <table class="table">
         <tbody>
           <tr>
             <th scope="row">注文日</th>
             <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
             <th scope="row">配送先</th>
             <td>〒<%= @order.postal_code %><br>
                   <%= @order.address %><br>
                   <%= @order.name %></td>
+          </tr>
+          <tr>
             <th scope="row">支払方法</th>
-            <td><%= @order.payment_method %></td>
+            <td><%= @order.payment_method_i18n %></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class ="col-md-3">
+      <p>請求情報</p>
       <table class="table">
         <tbody>
           <tr>
             <th scope="row">商品合計</th>
-            <td><%=  %></td>
+            <td><%= @subtotal %></td>
+          </tr>
+          <tr>
             <th scope="row">配送料</th>
             <td><%= @order.postage %></td>
+          </tr>
+          <tr>
             <th scope="row">ご請求額</th>
-            <td><%= @order.subtotal %></td>
+            <td><%= @order.total_payment %></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="row">
+    <p>注文内容</p>
     <table class="table table-light">
       <thead>
         <tr>
@@ -43,12 +54,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <% @order.order_details.each do |order_detail| %>
+       <tr>
+          <th><%= order_detail.item.name %></th>
+          <td><%= order_detail.item.price %>
+              (<%= order_detail.price %>)</td>
+          <td><%= order_detail.amount %></td>
+          <td><%= order_detail.price*order_detail.amount %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

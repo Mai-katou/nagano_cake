@@ -10,11 +10,15 @@
     </thead>
 
     <tbody>
-      <%= @orders.each do |order| %>
+      <% @orders.each do |order| %>
       <tr>
         <th><%= order.created_at.strftime('%Y/%m/%d')%></th>
         <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-        <td><%= order.order_details.amount %></td>
+        <td><% @total_amount = 0 %>
+            <% order.order_details.each do |order_detail| %>
+            <% @total_amount += order_detail.amount %>
+            <% end %>
+            <%= @total_amount %></td>
       </tr>
       <% end %>
     </tbody>

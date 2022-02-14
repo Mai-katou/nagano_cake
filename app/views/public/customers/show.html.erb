@@ -31,13 +31,13 @@
     </tr>
     <tr>
       <th scope="row">会員ステータス</th>
-      <td><% if @customer.is_active == true %>
-            <strong class ="true">有効</strong>
+      <td><% if @customer.is_deleted == false %>
+            <strong class ="false">有効</strong>
           <% else %>
-            <strong class="false">退会</strong>
+            <strong class="true">退会</strong>
           <% end %></td>
     </tr>
   </tbody>
 </table>
 <p>配送先 <%= link_to "一覧を見る", addresses_path ,class: 'btn btn-primary' %></p>
-<p>注文履歴<%= link_to "一覧を見る", orders_index_path ,class: 'btn btn-primary' %></p>
+<p>注文履歴<%= link_to "一覧を見る", orders_path ,class: 'btn btn-primary' %></p>

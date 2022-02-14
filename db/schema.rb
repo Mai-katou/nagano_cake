@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "telephone_number", null: false
-    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_deleted", default: false, null: false
@@ -109,7 +108,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
 
   create_table "order_details", force: :cascade do |t|
     t.integer "price", null: false
-    t.integer "quantity", null: false
+    t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_id", null: false
@@ -121,7 +120,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_122334) do
     t.string "address", null: false
     t.string "name", null: false
     t.integer "postage", null: false
-    t.integer "subtotal", null: false
+    t.integer "total_payment", null: false
     t.integer "payment_method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

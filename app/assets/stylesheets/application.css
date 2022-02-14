@@ -54,11 +54,11 @@ h2{
   margin:20px;
 }
 
-.true{
+.false{
   color:green;
 }
 
-.false{
+.true{
   color:#c0c0c0;
 }
 
