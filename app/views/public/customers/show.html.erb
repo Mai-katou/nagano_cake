@@ -1,43 +1,37 @@
+<div class="container">
 <h4>マイページ</h4>
 
-<h4>登録情報</h4>
+<strong>登録情報</strong>
 <%= link_to "編集する", customers_edit_path, class: 'btn btn-success' %>
 
-<table class= "table table-bordered">
+<table class= "my-page table table-bordered">
   <tbody>
     <tr>
-      <th scope="row" >会員ID</th>
-      <td><%= @customer.id %></td>
+      <th class="table-active" >会員ID</th>
+      <td ><%= @customer.id %></td>
     </tr>
     <tr>
-      <th scope="row">氏名</th>
+      <th class="table-active">氏名</th>
       <td><%= @customer.last_name %> <%= @customer.first_name %></td>
     </tr>
     <tr>
-      <th scope="row">フリガナ</th>
+      <th class="table-active">フリガナ</th>
       <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
     </tr>
     <tr>
-      <th scope="row">郵便番号</th>
+      <th class="table-active">郵便番号</th>
       <td><%= @customer.postal_code %></td>
     </tr>
     <tr>
-      <th scope="row">住所</th>
+      <th class="table-active">住所</th>
       <td><%= @customer.address %></td>
     </tr>
     <tr>
-      <th scope="row">メールアドレス</th>
+      <th class="table-active">メールアドレス</th>
       <td><%= @customer.email %></td>
-    </tr>
-    <tr>
-      <th scope="row">会員ステータス</th>
-      <td><% if @customer.is_deleted == false %>
-            <strong class ="false">有効</strong>
-          <% else %>
-            <strong class="true">退会</strong>
-          <% end %></td>
     </tr>
   </tbody>
 </table>
-<p>配送先 <%= link_to "一覧を見る", addresses_path ,class: 'btn btn-primary' %></p>
-<p>注文履歴<%= link_to "一覧を見る", orders_path ,class: 'btn btn-primary' %></p>
+<strong>配送先</srtong> <%= link_to "一覧を見る", addresses_path ,class: 'btn btn-primary' %><br>
+<strong>注文履歴</strong><%= link_to "一覧を見る", orders_path ,class: 'btn btn-primary' %>
+</div>

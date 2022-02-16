@@ -1,21 +1,23 @@
+<div class="container">
 <h3>管理者ログイン</h3>
 
 <%= form_with model:@admin ,url: admin_session_path,method: :post, local:true do |f| %>
-<div class ="log-in container">
-  <div class="field row align-items-center justify-content-center">
-    <%= f.label :メールアドレス, class: "col-md-2" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-4" %>
-  </div>
-
-  <div class="field row align-items-center justify-content-center">
-    <%= f.label :パスワード, class:"col-md-2" %>
-    <%= f.password_field :password, autocomplete: "current-password",class: "col-md-4" %>
-  </div>
-
-  <div class="actions field row align-items-center justify-content-center">
-    <%= f.submit "ログイン" ,class: 'btn btn-primary col-md-2 offset-md-2' %>
-  </div>
-</div>
+<table class="table table-borderless">
+    <tbody>
+      <tr>
+        <th class="col-2">メールアドレス</th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email",class: "justify-content-start" %></td>
+      </tr>
+      <tr>
+        <th class="col-2">パスワード</th>
+        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      </tr>
+      <tr>
+        <th class="col-2"></th>
+        <td><%= f.submit "ログイン" ,class: 'btn btn-primary' %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
-
+</div>
 <%= render "admin/shared/links" %>

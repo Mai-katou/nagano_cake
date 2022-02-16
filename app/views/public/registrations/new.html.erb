@@ -1,6 +1,5 @@
-<h2>新規会員登録</h2>
-
 <div class="container">
+<h2>新規会員登録</h2>
 <%= form_with model: @customer, method: :post, url: customer_registration_path, local:true do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
@@ -53,3 +52,4 @@
 
 <h2>既に登録済みの方</h2>
   <p><%= link_to 'こちら', new_customer_session_path %>からログインしてください</p>
+</div>

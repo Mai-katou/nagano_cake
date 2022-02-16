@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    @customer = current_customer
   end
 
   def confirm
@@ -56,6 +57,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    
+     
   end
 
 
