@@ -1,11 +1,11 @@
-<h2>商品新規登録</h2>
-
+<div class="container">
+  <h2>商品新規登録</h2>
   <%= form_with model: @item, method: :post, url: admin_items_path, local:true do |f| %>
 
   <table class="table table-borderless">
     <tbody>
       <tr>
-        <th>商品画像</th>
+        <th class="col-3">商品画像</th>
           <td><%= f.file_field :image, accept: "image/*" %></td>
         </tr>
       <tr>
@@ -37,4 +37,5 @@
       </tr>
     </tbody>
   </table>
-<% end %>
+  <% end %>
+</div>

@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
+
   end
 
   def confirm
@@ -31,21 +32,22 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.postage = 800
     @subtotal = 0
-    @order.save
+    if @order.save
 
-    @cart_items = current_customer.cart_items
-
-    @cart_items.each do |cart_item|
-      @order_detail = OrderDetail.new
-      # @order_detail = OrderDetail.new(order_detail_params)
-      @order_detail.order_id = @order.id
-      @order_detail.item_id = cart_item.item_id
-      @order_detail.price = cart_item.item.with_tax_price
-      @order_detail.amount = cart_item.amount
-      @order_detail.save
+      @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
+        @order_detail = OrderDetail.new
+        @order_detail.order_id = @order.id
+        @order_detail.item_id = cart_item.item_id
+        @order_detail.price = cart_item.item.with_tax_price
+        @order_detail.amount = cart_item.amount
+        @order_detail.save
+      end
+      @cart_items.destroy_all
+      redirect_to orders_complete_path
+    else
+      redirect_to new_order_path
     end
-    @cart_items.destroy_all
-    redirect_to orders_complete_path
   end
 
   def complete
@@ -57,8 +59,6 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    
-     
   end
 
 

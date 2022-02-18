@@ -1,10 +1,10 @@
-<h2>ジャンル一覧・追加</h2>
 <div class="container">
-    <div class="row">
-        <table class="table table-borderless">
+    <h2>ジャンル一覧・追加</h2>
+     <div class="row">
+        <table class="genres table table-borderless">
             <tbody>
                 <th>ジャンル名</th>
-                <td><%= form_with model: @genre,url: admin_genres_path, local:true do |f| %>
+                <td><%= form_with model: @genre,url: admin_genres_path, method: :post, local:true do |f| %>
                     <%= f.text_field :name %></td>
                 <td><%= f.submit '新規登録', class:"btn btn-success" %></td>
                 </th>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-        <table class="table">
+        <table class="genres table">
             <thead class="thead-light">
                 <tr>
                 <th>ジャンル</th>

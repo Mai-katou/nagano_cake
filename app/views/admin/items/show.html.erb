@@ -1,5 +1,5 @@
-<h2>商品詳細</h2>
-  <div class="container">
+<div class="container">
+  <h2>商品詳細</h2>
     <div class="row">
       <div class="col-md-4">
         <%= image_tag @item.get_image,size:"200x200" %>
@@ -8,7 +8,7 @@
         <table class="table table-borderless">
         <tbody>
           <tr>
-            <th>商品名</th>
+            <th class="col-4">商品名</th>
             <td> <%= @item.name %></td>
           </tr>
           <tr>
@@ -20,15 +20,15 @@
             <td><%= @item.genre.name %></td>
             </tr>
           <tr>
-            <th>税抜価格</br>(税抜価格)</th>
+            <th>税込価格</br>(税抜価格)</th>
             <td><%= @item.with_tax_price %><br>(<%= @item.price %>)　<a>円</a></td>
           </tr>
           <tr>
             <th>販売ステータス</th>
             <td><% if @item.is_active == true %>
-                <p class="true">販売中</p>
+                <strong class="active-true">販売中</strong>
                 <% else %>
-                <p class="false">販売停止中</p>
+                <strong class="active-false">販売停止中</strong>
                 <% end %></td>
           </tr>
           <tr>

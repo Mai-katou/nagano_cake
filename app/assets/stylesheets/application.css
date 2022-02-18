@@ -54,11 +54,13 @@ h2{
   margin:20px;
 }
 
-.false{
+.false,
+.active-true{
   color:green;
 }
 
-.true{
+.true,
+.active-false{
   color:#c0c0c0;
 }
 
@@ -69,6 +71,7 @@ h2{
 .fa-plus-circle{
   color:black;
 }
+
 
 .new-item{
   padding:20px;
@@ -104,6 +107,9 @@ footer{
   width:100% !important;
 }
 
+.genres{
+  width:50% !important;
+}
 
 .order-new{
   margin-left:20px;
@@ -111,4 +117,8 @@ footer{
 
 .unsubscribe{
   margin:10px;
+}
+
+.link-dark{
+  color:black;
 }

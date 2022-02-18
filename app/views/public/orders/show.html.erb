@@ -47,6 +47,7 @@
           </table>
       </div>
     </div>
+
     <div class="row">
       <div class="col-8">
       <strong>注文内容</strong>
@@ -54,7 +55,7 @@
         <thead>
           <tr>
             <th class="table-active">商品</th>
-            <th class="table-active">単価</th>
+            <th class="table-active">単価（税込）</th>
             <th class="table-active">個数</th>
             <th class="table-active">小計</th>
           </tr>
@@ -63,8 +64,7 @@
           <% @order.order_details.each do |order_detail| %>
          <tr>
             <th><%= order_detail.item.name %></th>
-            <td><%= order_detail.item.price %>
-                (<%= order_detail.price %>)</td>
+            <td><%= order_detail.price %></td>
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.price*order_detail.amount %></td>
           </tr>
